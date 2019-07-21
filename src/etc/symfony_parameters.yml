@@ -1,0 +1,14 @@
+# Symfony parameters for DEVELOPMENT environment
+parameters:
+    database_driver: pdo_mysql
+    database_host: localhost
+    database_port: null
+    database_name: dashit
+    database_user: coding_together
+    database_password: temppass123
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    locale: en
+    secret: bed8d985d19a4bbee855a6257bc86010a

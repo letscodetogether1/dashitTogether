@@ -1,0 +1,68 @@
+{
+    "name": "symfony/framework-standard-edition",
+    "license": "MIT",
+    "type": "project",
+    "description": "The \"Symfony Standard Edition\" distribution",
+    "autoload": {
+        "psr-0": { "": "src/" },
+        "psr-4": {
+            "DashItTogether\\Classes\\": "../backend/classes/",
+            "DashItTogether\\Controller\\": "../backend/controller/",
+            "DashItTogether\\Services\\": "../backend/services/"
+        }
+    },
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/symfony": "~3.0",
+        "symfony/form": "~3.0",
+        "symfony/http-kernel": "~3.0",
+        "symfony/assetic-bundle": "~2.8.2",
+        "doctrine/orm": "2.5.14",
+        "symfony/monolog-bundle": "3.0.3",
+        "symfony/swiftmailer-bundle": "3.0.4",
+        "doctrine/doctrine-bundle": "1.6.13",
+        "twig/extensions": ">=1.5.4",
+        "symfony/routing": ">=3.0.9",
+        "snowplow/referer-parser": "dev-master",
+        "ua-parser/uap-php": ">=3.8.8",
+        "phpseclib/mcrypt_compat": "^1.0",
+        "instrumental/instrumental_agent": "^1.0",
+        "drewm/mailchimp-api": "^2.5",
+        "rollbar/rollbar": "~1.5",
+        "wildbit/postmark-php": "^2.6",
+        "sensio/distribution-bundle": "~5.0.24",
+        "sensio/framework-extra-bundle": "~3.0.29",
+        "incenteev/composer-parameter-handler": "~2.1.3",
+        "wildbit/swiftmailer-postmark" : "*",
+        "symfony/webpack-encore-bundle": "^1.6"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+        ],
+        "post-update-cmd": [
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+        ]
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "minimum-stability": "stable",
+    "extra": {
+        "symfony-app-dir": "app",
+        "symfony-web-dir": "web",
+        "incenteev-parameters": {
+            "file": "app/config/parameters.yml"
+        }
+    },
+    "require-dev": {
+
+    }
+}
