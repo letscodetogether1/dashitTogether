@@ -1,0 +1,14 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "amazonlinux"
+  config.vm.box_url = "box/amazonlinux2/amazonlinux2.box"
+
+  config.vm.define "dashitTogether" do |web|
+    web.vm.network "private_network", ip: "10.1.0.10", virtualbox__hostonly: "web"
+    web.vm.synced_folder "../../src/", "/opt/dashit"
+    web.vm.synced_folder "shared/", "/var/shared/", :mount_options => ['dmode=770','fmode=770']
+  end
+
+  config.vm.provider "virtualbox" do |v|
+    v.memory = 2048
+  end
+end
